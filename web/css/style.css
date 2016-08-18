@@ -1,0 +1,59 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#top-logo{
+
+  position:absolute;
+  top:5px;
+  left:5px;
+  z-index:100;
+}
+#classroom{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 98vh;
+  width: 99vw;
+  z-index: 0;
+}
+#personal-classroom{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 98vh;
+  width: 99vw;
+  z-index: 1;
+}
+.very-bg-btn{
+  width: 350px;
+  height: 300px;
+}
+.very-bg-btn-text{
+  font-weight: bold;
+  font-size: 20pt;
+
+}
+.bg-btn{
+  width: 260px;
+  height: 200px;
+  vertical-align: middle;
+}
+.bg-btn-text{
+  font-weight: bold;
+  font-size: 18pt;
+  vertical-align: middle;
+
+}
+.popover {
+  z-index: 9010; /* A value higher than 1010 that solves the problem */
+}
+body, html {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
