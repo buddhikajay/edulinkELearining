@@ -32,7 +32,27 @@ class Module
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id")
      */
     private $teacher;
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string")
+     */
+    private $name;
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
     public function __toString()
     {
         return (string) $this->code;
