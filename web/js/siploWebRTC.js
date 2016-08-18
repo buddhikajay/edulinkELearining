@@ -11,7 +11,7 @@ var webrtc = new SimpleWebRTC({
     remoteVideosEl: 'remoteVideos',
     // immediately ask for camera access
     autoRequestMedia: true,
-    url: 'http://'+location.hostname+':8889',
+    url: location.protocol+'//'+location.hostname+':8889',
     media:{
             audio:true,
             video: {
