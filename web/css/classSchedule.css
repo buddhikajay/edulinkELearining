@@ -1,0 +1,33 @@
+
+.dashboard-class-schedule{
+    margin: 6.5% 1%;
+    margin-bottom:2%;
+    width: inherit;
+    padding: 2%;
+    max-height: 82vh;
+}
+
+@media (max-width: 767px) {
+    .dashboard-class-schedule{
+        margin: 50px 0 0 0;
+    }
+}
+.fc-day-header{
+    font-size: medium;
+}
+.fc-time{
+    font-size: small;
+}
+.fc-button{
+    color: #00A000;
+
+}
+.fc-button-group{
+    background-color: #00a157;
+}
+.fc-unthemed .fc-today {
+    background-color: transparent;
+}
+.fc-title{
+    font-size: small;
+}

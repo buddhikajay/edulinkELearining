@@ -1,0 +1,25 @@
+#localVideo{
+    position: relative;
+    top:82vh;
+    left: 86vw;
+    z-index: 100;
+    width: 100px;
+
+}
+
+#remoteVideos{
+    position: absolute;
+    top:1vh;
+    left: 1vw;
+    z-index: 0;
+    height: 98vh;
+}
+#remoteVideos video{
+    height: inherit;
+}
+#videoButton{
+    position: absolute;
+    top:90vh;
+    left: 86vw;
+    z-index: 1000;
+}
