@@ -25,18 +25,25 @@ class EventController extends Controller
 //            array('id' => $userId)
 //        );
         if($user!=null){
-            $allSessions=$em->getRepository('AppBundle:Session')->findByBatchId($user->getBatch()->getId());
+            if($this->container->get('security.authorization_checker')->isGranted('ROLE_STUDENT')){
+                $allSessions = $em->getRepository('AppBundle:Session')->findByBatchId($user->getBatch()->getId());
+            }
+            else if($this->container->get('security.authorization_checker')->isGranted('ROLE_TEACHER')){
+                $allSessions  =  $em->getRepository('AppBundle:Session')->findByTeacherId($user->getId());
+            }
 //            $allSessions = $user->getBatch()->getSessions();
 //            $allEvents =  $user->getEvents();
             $freeEvent = null;
             $freeEventsArr = null;
             foreach($allSessions as $eachSession){
                 $eachEvent = $eachSession->getEvent();
+                $moduleName = $eachSession->getModule()->getName();
+                $moduleCode = $eachSession->getModule()->getCode();
                 //if($eachEvent->getTitle() == "Free Slot"){
 
                     $freeEvent = array(
                         "id" => $eachEvent->getId(),
-                        "title"=>"",
+                        "title"=>$moduleCode." - ".$moduleName,
                         "start"=>$eachEvent->getStartDatetime()->format(DateTime::ISO8601),
                         "end"=>$eachEvent->getEndDatetime()->format(DateTime::ISO8601),
                         "allDay"=>$eachEvent->getAllDay(),

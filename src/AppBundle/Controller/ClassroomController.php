@@ -56,4 +56,12 @@ class ClassroomController extends Controller
         // replace this example code with whatever you need
         return $this->render('@App/classroom/studentPersonalClassroom.html.twig');
     }
+    /**
+     * @Route("/classroom/load", name="load_classroom")
+     */
+    public function loadClassroomAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('@App/classroom/classLoad.html.twig');
+    }
 }
