@@ -1,9 +1,14 @@
-var videoWidth=1280;
-var videoHeight=720;
+var idealWidth  = 640;
+var idealHeight = 360;
 
-if(myRole=='teacher'){
+var minWidth = 640;
+var minHeight = 480;
 
-}
+var maxWidth = 640;
+var maxHeight = 480;
+
+if(myRole=='teacher'){}
+
 var webrtc = new SimpleWebRTC({
     // the id/element dom element that will hold "our" video
     localVideoEl: 'localVideo',
@@ -11,12 +16,11 @@ var webrtc = new SimpleWebRTC({
     remoteVideosEl: 'remoteVideos',
     // immediately ask for camera access
     autoRequestMedia: true,
-    url: 'https://edulink.siplo.xyz:8889',
     media:{
             audio:true,
             video: {
-                width: {min: 640, ideal: videoWidth, max: videoWidth},
-                height: {min: 480, ideal: videoHeight, max:videoHeight},
+                width: {min: minWidth, ideal: idealWidth, max: maxWidth},
+                height: {min: minHeight, ideal: idealHeight, max:maxHeight},
                 frameRate: 13     // Shorthand for ideal.
             }
 

@@ -10,7 +10,6 @@ var webrtc = new SimpleWebRTC({
     remoteVideosEl: 'remoteVideos',
     // immediately ask for camera access
     autoRequestMedia: true,
-    url: 'https://edulink.siplo.xyz:8889',
     media:{
             audio:true,
             video:false
