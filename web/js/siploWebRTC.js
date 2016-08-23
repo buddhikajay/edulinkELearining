@@ -2,10 +2,10 @@ var idealWidth  = 640;
 var idealHeight = 360;
 
 var minWidth = 640;
-var minHeight = 480;
+var minHeight = 360;
 
 var maxWidth = 640;
-var maxHeight = 480;
+var maxHeight = 360;
 
 if(myRole=='teacher'){}
 
