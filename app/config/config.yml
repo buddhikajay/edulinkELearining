@@ -28,8 +28,8 @@ framework:
     trusted_proxies: ~
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id:  session.handler.native_file
-        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        handler_id:  snc_redis.session.handler
+#        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
     assets: ~
@@ -110,6 +110,8 @@ easy_admin:
         edit:
           title: 'Edit Student'
           fields: ['username', 'email', 'batch', 'roles']
+        form:
+          fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
 
       Batch:
         class: AppBundle\Entity\Batch
@@ -169,3 +171,18 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
+            logging: %kernel.debug%
+        cache:
+            type: predis
+            alias: cache
+            dsn: redis://localhost/1
+    session:
+        client: default
+        prefix: edu:

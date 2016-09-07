@@ -31,7 +31,9 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "pugx/multi-user-bundle": "3.0.*@dev",
         "javiereguiluz/easyadmin-bundle": "^1.15",
-        "symfony/assetic-bundle": "^2.8"
+        "symfony/assetic-bundle": "^2.8",
+        "snc/redis-bundle": "2.x-dev",
+        "predis/predis": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
