@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Siplo\SchedulerBundle\SiploSchedulerBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
