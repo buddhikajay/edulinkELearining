@@ -1,3 +1,4 @@
+.modal-backdrop {background: none;}
 #localVideo{
     position: relative;
     top:82vh;

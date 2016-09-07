@@ -1,3 +1,4 @@
+.modal-backdrop {background: none;}
 #videoContainer{
     /*float: right;*/
     position: absolute;

@@ -40,4 +40,11 @@ class DefaultController extends Controller
     {
         return $this->render('@App/schedule/schedule.html.twig');
     }
+    /**
+     * @Route("/testVideoPlayer/{role}", name="test_video_player")
+     */
+    public function testPlayerAction($role)
+    {
+        return $this->render('@App/classroom/videoPlayer.html.twig',array("role"=>$role));
+    }
 }

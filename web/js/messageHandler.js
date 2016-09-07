@@ -9,6 +9,7 @@ message format
     payload:<message>
  */
 function handleMessage(message){
+
     if(message.type=='ask' && myRole=='teacherWhiteboard'){
         addQuestion(message.payload);
     }
@@ -44,6 +45,11 @@ function handleMessage(message){
         else if(myRole=='studentPersonalClass'){
             stopQuestion();
         }
+    }
+    else if(message.type=='videoPlayer'){
+        //message is related to video player.
+        //send payload to videoPlayerMessageHandler
+        videoPlayerMessageHandler(message.payload);
     }
 }
 

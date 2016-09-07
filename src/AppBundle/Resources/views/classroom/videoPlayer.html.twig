@@ -1,0 +1,187 @@
+<html>
+     <head>
+         <script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
+         <script
+                 src="https://code.jquery.com/jquery-3.1.0.min.js"
+                 integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+                 crossorigin="anonymous">
+
+         </script>
+         <script>
+             var myRole='{{ role }}';
+         </script>
+         <script src="{{ '/js/simplewebrtc.bundle.js' }}" type="text/javascript"></script>
+         <script src="{{ '/js/siploWebRTC-messaging.js' }}" type="text/javascript"></script>
+         <script src="{{ '/js/messageHandler.js' }}" type="text/javascript"></script>
+         <script>
+             //message format
+             //event:<event name>
+             //data:<data related to image>
+             function videoPlayerMessageHandler(message){
+                   // alert(message.event);
+                 if(myRole!='teacher') {
+                     if (message.event == 'play') {
+                         playVideo();
+                     }
+                     else if (message.event == 'pause') {
+                         pauseVideo();
+                     }
+                     else if (message.event == 'updateTime') {
+                         updateTime(message.data);
+                     }
+                     else if (message.event == 'seeking') {
+                         seek(message.data);
+
+                     }
+                 }
+             }
+
+             function playVideo(){
+                video.play();
+             }
+             function pauseVideo(){
+                video.pause();
+             }
+             function updateTime(time){
+               //  if (video.media.readyState === 4) {
+                     video.currentTime(time);
+                // }
+             }
+             function seek(time){
+                 video.currentTime(time);
+             }
+
+
+
+             function sendVideoPlayerMessage(message){
+                 sendMessage("videoPlayer","",message);
+                 //for testing
+                 //videoPlayerMessageHandler(message);
+             }
+
+             function emitMessage(event,data){
+                 //construct message
+                 var message ={
+                     event:event,
+                     data:data
+                 };
+                 sendVideoPlayerMessage(message);
+             }
+         </script>
+     </head>
+     <body>
+
+           {#<video height="180" width="300" id="a">#}
+                  {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">#}
+                  {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">#}
+                  {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">#}
+                {#</video>#}
+            <div id="footnote"></div>
+           {#<video height="180" width="300" id="b">#}
+               {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">#}
+               {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">#}
+               {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">#}
+           {#</video>#}
+
+           <video height="180" width="300" id="video">
+               <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">
+               <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">
+               <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">
+           </video>
+           <div id="scrub"></div>
+     </body>
+
+
+<script>
+    document.addEventListener( "DOMContentLoaded", function() {
+
+        var video = Popcorn("#video");
+
+
+        var videos = {
+                    a: Popcorn("#video"),
+                },
+                scrub = $("#scrub"),
+                loadCount = 0,
+                events = "play pause timeupdate seeking".split(/\s+/g);
+
+        // iterate both media sources
+        Popcorn.forEach(videos, function (media, type) {
+
+            // when each is ready...
+            media.on("canplayall", function () {
+
+                // trigger a custom "sync" event
+                this.emit("sync");
+
+
+
+                // set the max value of the "scrubber"
+                scrub.attr("max", this.duration());
+
+                // Listen for the custom sync event...
+            }).on("sync", function () {
+
+                // Once both items are loaded, sync events
+                if (++loadCount == 1) {
+
+                    // Iterate all events and trigger them on the video B
+                    // whenever they occur on the video A
+                    events.forEach(function (event) {
+
+                        video.on(event, function () {
+
+                            // Avoid overkill events, trigger timeupdate manually
+                            if (event === "timeupdate") {
+
+                                if (!this.media.paused) {
+                                    return;
+                                }
+                                //videos.b.emit("timeupdate");
+                                emitMessage("seek",this.currentTime());
+                                // update scrubber
+                                scrub.val(this.currentTime());
+
+                                return;
+                            }
+
+                            if (event === "seeking") {
+                               // videos.b.currentTime(this.currentTime());
+                                emitMessage("seek",this.currentTime());
+                            }
+
+                            if (event === "play" || event === "pause") {
+                                //videos.b[event]();
+
+                                emitMessage(event);
+                            }
+                        });
+                    });
+                }
+            });
+        });
+
+        scrub.bind("change", function () {
+            var val = this.value;
+            video.currentTime(val);
+           // videos.b.currentTime(val);
+        });
+
+        // With requestAnimationFrame, we can ensure that as
+        // frequently as the browser would allow,
+        // the video is resync'ed.
+        function sync() {
+            if (video.media.readyState === 4) {
+//                videos.b.currentTime(
+//                        videos.a.currentTime()
+//                );
+                emitMessage("updateTime",video.currentTime());
+            }
+            requestAnimationFrame(sync);
+        }
+
+        sync();
+    }, false );
+</script>
+
+</html>

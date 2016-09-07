@@ -36,7 +36,7 @@ webrtc.on('connectionReady', function (sessionId) {
 });
 
 webrtc.on('createdPeer', function (peer) {
-    if(myRole=='studentPersonalClass'){
+    if(myRole!='teacher'){
         disableMic();
     }
     console.log('peer created '+peer.role+' type: '+ peer.type);
