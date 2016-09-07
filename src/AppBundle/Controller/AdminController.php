@@ -1,0 +1,39 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: buddhikajay
+ * Date: 9/6/16
+ * Time: 11:29 PM
+ */
+
+namespace AppBundle\Controller;
+
+use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+
+class AdminController extends BaseAdminController
+{
+    public function createNewUserEntity()
+    {
+        return $this->get('fos_user.user_manager')->createUser();
+    }
+
+    public function prePersistUserEntity($user)
+    {
+        $this->get('fos_user.user_manager')->updateUser($user, false);
+    }
+
+    public function preUpdateUserEntity($user)
+    {
+        $this->get('fos_user.user_manager')->updateUser($user, false);
+    }
+
+    public function createNewStudentEntity()
+    {
+        return $this->get('fos_user.user_manager')->createUser();
+    }
+
+    public function prePersistStudentEntity($user)
+    {
+        $this->get('fos_user.user_manager')->updateUser($user, false);
+    }
+}
