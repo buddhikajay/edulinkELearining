@@ -11,12 +11,15 @@
         <div id="remoteVideos"></div>
     </div>
     <div id="classroom">
-        <iframe src="https://siplo.lk:9002/whiteboard/123/student" frameborder="0" width="100%" height="100%"></iframe>
+        <iframe src="https://siplo.xyz:9002/whiteboard/123/" frameborder="0" width="100%" height="100%"></iframe>
     </div>
 
     {#<button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">#}
         {#Launch demo modal#}
     {#</button>#}
+    <button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">
+        Show Video
+    </button>
     <!-- Modal -->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static"
          data-keyboard="false" >
@@ -28,7 +31,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="videoPlayer" style="position: relative;z-index: 1000;" >
-                        <video id="video" class="videoInsert">
+                        <video id="video" class="videoInsert" controls>
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">#}
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">#}
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">#}
@@ -50,7 +53,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-        var myRole = 'student';
+        var myRole = 'teacher';
         function showQuestion(question){
             $('#classroom').append('<div id="questionContainer" class="row" style="width:70vw; position: absolute;z-index: 1000;left: 30vw;top:5vh">' +
                     '<div class="card" style="padding: 5px">'
