@@ -148,7 +148,7 @@ function emitMessage(event,data){
             requestAnimationFrame(sync);
         }
 
-        sync();
+        //sync();
     }, false );
 
 /**
