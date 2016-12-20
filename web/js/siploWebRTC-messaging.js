@@ -59,3 +59,9 @@ webrtc.on('videoAdded', function (video, peer) {
         remotes.appendChild(container);
     }
 });
+function enableMic(){
+    webrtc.unmute();
+}
+function disableMic(){
+    webrtc.mute();
+}
