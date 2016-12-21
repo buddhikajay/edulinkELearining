@@ -235,13 +235,17 @@
             $('#videoModal').modal({
                 show: true
             });
-            emitMessage("open","");
+//            emitMessage("open","");
         }
         function hidePlayer(){
             $('#videoModal').modal({
                 show: false
             });
-            emitMessage("close","");
+//            emitMessage("close","");
         }
+
+        $('#videoModal').on('hidden', function () {
+            emitMessage("close","");
+        })
     </script>
 {% endblock %}

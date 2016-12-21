@@ -143,7 +143,7 @@ function emitMessage(event,data){
 //                videos.b.currentTime(
 //                        videos.a.currentTime()
 //                );
-                emitMessage("updateTime",video.currentTime());
+               // emitMessage("updateTime",video.currentTime());
             }
             requestAnimationFrame(sync);
         }
