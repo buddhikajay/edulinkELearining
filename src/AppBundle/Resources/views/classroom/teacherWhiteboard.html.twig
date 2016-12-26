@@ -8,7 +8,7 @@
 
 {% block body %}
     {{ parent() }}
-    <div id="videoContainer" class="well">
+    <div id="videoContainer">
         <video id="localVideo"></video>
         <div id="remoteVideos" onclick="enlarge()"></div>
     </div>
@@ -235,10 +235,15 @@
         video.appendChild(source);
        // video.play();
         function showPlayer(){
-            $('#videoModal').modal({
+
+            $('#fileBrowserModal').modal({
                 show: true
             });
-            emitMessage("open","");
+
+//            $('#videoModal').modal({
+//                show: true
+//            });
+//            emitMessage("open","");
         }
         function hidePlayer(){
 

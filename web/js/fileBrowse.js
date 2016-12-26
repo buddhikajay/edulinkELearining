@@ -14,7 +14,7 @@ $(function() {
     $('#container').jstree({
         'core' : {
             'data' : {
-                "url" : "https://siplo.xyz:9002/tree/",
+                "url" : "https://files.whiteboard.siplo.xyz/tree/",
                 "data" : function (node) {
                     return { "id" : node.id };
                 }
