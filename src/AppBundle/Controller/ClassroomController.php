@@ -37,7 +37,7 @@ class ClassroomController extends Controller
      */
     public function getTeacherWhiteboardAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('@App/classroom/teacherWhiteboard.html.twig');
     }
     /**

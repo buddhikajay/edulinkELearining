@@ -12,7 +12,7 @@ var webrtc = new SimpleWebRTC({
     autoRequestMedia: true,
 
     //url: location.protocol+'//'+location.hostname+':8889',
-    url: 'https://siplo.xyz:8889',
+    url: 'https://media.siplo.xyz',
     media:{
             audio:true,
             video:false
