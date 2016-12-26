@@ -9,7 +9,7 @@ message format
     payload:<message>
  */
 function handleMessage(message){
-
+console.log(message);
     if(message.type=='ask' && myRole=='teacherWhiteboard'){
         addQuestion(message.payload);
     }

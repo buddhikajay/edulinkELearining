@@ -4,24 +4,24 @@
         //data:<data related to image>
     function videoPlayerMessageHandler(message){
         // alert(message.event);
-        if(myRole!='teacherWhiteboard') {
-            if (message.event == 'play') {
+        if(myRole!=='teacherWhiteboard') {
+            if (message.event === 'play') {
                 playVideo();
             }
-            else if (message.event == 'pause') {
+            else if (message.event === 'pause') {
                 pauseVideo();
             }
-            else if (message.event == 'updateTime') {
+            else if (message.event === 'updateTime') {
                 updateTime(message.data);
             }
-            else if (message.event == 'seeking') {
+            else if (message.event === 'seeking') {
                 seek(message.data);
 
             }
-            else if(message.event=='open'){
+            else if(message.event==='open'){
                 showPlayer();
             }
-            else if(message.event=='close'){
+            else if(message.event==='close'){
                 hidePlayer();
             }
         }

@@ -241,15 +241,11 @@
             emitMessage("open","");
         }
         function hidePlayer(){
-            $('#videoModal').modal({
-                show: false
-            });
-//            emitMessage("close","");
+
+            emitMessage("close", "");
+
         }
 
-        $('#videoModal').on('hidden', function () {
-            emitMessage("close","");
-        });
 
 
         var enlarged=false;
