@@ -1,6 +1,6 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "layout.html.twig" %}
 
-{% block fos_user_content %}
+{% block content %}
     {% trans_default_domain 'FOSUserBundle' %}
 
     <form action="{{ path('register_student') }}" method="POST">
@@ -9,4 +9,4 @@
             <input type="submit" value="{{ 'registration.submit'|trans }}" />
         </div>
     </form>
-{% endblock fos_user_content %}
+{% endblock content %}

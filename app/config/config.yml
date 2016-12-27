@@ -95,6 +95,8 @@ easy_admin:
         edit:
           title: 'Edit Teacher'
           fields: ['username', 'email', 'roles']
+        form:
+          fields: ['enabled', 'username', 'email', 'plainPassword', 'roles', 'lastLogin']
 
       Student:
         class: UserBundle\Entity\Student
@@ -111,7 +113,7 @@ easy_admin:
           title: 'Edit Student'
           fields: ['username', 'email', 'batch', 'roles']
         form:
-          fields: ['enabled', 'username', 'email', 'roles', 'lastLogin']
+          fields: ['enabled', 'username', 'email', 'plainPassword', 'roles', 'lastLogin']
 
       Batch:
         class: AppBundle\Entity\Batch
