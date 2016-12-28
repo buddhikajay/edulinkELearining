@@ -19,7 +19,7 @@
 
             }
             else if(message.event==='open'){
-                showPlayer();
+                showVideo(message.data);
             }
             else if(message.event==='close'){
                 hidePlayer();

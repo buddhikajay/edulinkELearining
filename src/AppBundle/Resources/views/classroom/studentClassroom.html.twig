@@ -19,9 +19,9 @@
     {#<button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">#}
         {#Launch demo modal#}
     {#</button>#}
-    <button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">
-        Show Video
-    </button>
+    {#<button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">#}
+        {#Show Video#}
+    {#</button>#}
     <!-- Modal -->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static"
          data-keyboard="false" >
@@ -121,10 +121,12 @@
 
         video.appendChild(source);
        // video.play();
-        function showPlayer(){
+        function showVideo(file) {
+            source.setAttribute('src', file);
             $('#videoModal').modal({
                 show: true
             });
+
         }
         function hidePlayer(){
 
