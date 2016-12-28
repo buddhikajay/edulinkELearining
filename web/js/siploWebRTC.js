@@ -54,6 +54,7 @@ webrtc.on('createdPeer', function (peer) {
 // a peer video has been added
 webrtc.on('videoAdded', function (video, peer) {
     console.log('video added', peer);
+
     var remotes = document.getElementById('remotes');
     if (remotes) {
         var container = document.createElement('div');
@@ -64,6 +65,8 @@ webrtc.on('videoAdded', function (video, peer) {
         // suppress contextmenu
         video.oncontextmenu = function () { return false; };
 
-        remotes.appendChild(container);
+
+            remotes.appendChild(container);
+
     }
 });
