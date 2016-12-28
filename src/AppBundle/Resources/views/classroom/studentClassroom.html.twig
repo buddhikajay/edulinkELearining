@@ -115,21 +115,21 @@
             });
         });
         var video = document.getElementById('video');
-        var source = document.createElement('source');
-
-        source.setAttribute('src', 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv');
-
-        video.appendChild(source);
        // video.play();
         function showVideo(file) {
+
+            var source = document.createElement('source');
+
             source.setAttribute('src', file);
+
+            video.appendChild(source);
             $('#videoModal').modal({
                 show: true
             });
 
         }
         function hidePlayer(){
-
+            $("#video").empty();
             $('#videoModal').modal('hide');
         }
 
