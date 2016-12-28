@@ -1,5 +1,5 @@
 var DEFAULT_URL = ''; // added from Viewer.js
-
+var VIDEO_FILES_PATH="https://files.whiteboard.siplo.xyz/edulnik/videos/";
 $(function() {
     //$('#container').jstree({
     //    'core' : {
@@ -84,7 +84,7 @@ $(function(){
          socket.emit('pdf:load', room, uid, DEFAULT_URL);*/
 
         $('body').css('background-color', '#404040');
-        showVideo(DEFAULT_URL);
+        showVideo(VIDEO_FILES_PATH+DEFAULT_URL);
         $('#fileBrowserModal').modal('hide');
 
     });
