@@ -84,8 +84,7 @@ $(function(){
          socket.emit('pdf:load', room, uid, DEFAULT_URL);*/
 
         $('body').css('background-color', '#404040');
-        if(role == "tutor")
-            $('.pdf-controllers-container').css('display', 'block');
+        showVideo(DEFAULT_URL);
         $('#fileBrowserModal').modal('hide');
 
     });

@@ -25,7 +25,7 @@
     {#<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#videoModal">#}
         {#Launch demo modal#}
     {#</button>#}
-    <button type="button" class="btn btn-primary btn-lg" onclick="showPlayer()">
+    <button type="button" class="btn btn-primary btn-lg" onclick="openVideo()">
         Show Video
     </button>
     <button type="button" class="btn btn-primary btn-lg" id="screenShareButton">
@@ -238,7 +238,7 @@
 
         video.appendChild(source);
        // video.play();
-        function showPlayer(){
+        function openVideo(){
 
             $('#fileBrowserModal').modal({
                 show: true
@@ -248,6 +248,13 @@
 //                show: true
 //            });
 //            emitMessage("open","");
+        }
+        function showVideo(file) {
+//            source.setAttribute('src', file);
+            $('#videoModal').modal({
+                show: true
+            });
+            emitMessage("open",file);
         }
         function hidePlayer(){
 
