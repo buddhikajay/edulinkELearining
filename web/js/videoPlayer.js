@@ -109,7 +109,7 @@ function emitMessage(event,data){
                                 //videos.b.emit("timeupdate");
                                 emitMessage("seek",video.currentTime);
                                 // update scrubber
-                                scrub.val(video.currentTime);
+                                //scrub.val(video.currentTime);
 
                                 return;
                             }
@@ -130,11 +130,11 @@ function emitMessage(event,data){
             });
         });
 
-        scrub.bind("change", function () {
-            var val = this.value;
-            video.currentTime(val);
-            // videos.b.currentTime(val);
-        });
+        // scrub.bind("change", function () {
+        //     var val = this.value;
+        //     video.currentTime(val);
+        //     // videos.b.currentTime(val);
+        // });
 
         // With requestAnimationFrame, we can ensure that as
         // frequently as the browser would allow,
