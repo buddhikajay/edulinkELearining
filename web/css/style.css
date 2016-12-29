@@ -68,3 +68,6 @@ body, html {
   background-size: cover;
   overflow: hidden;
 }
+#videoModalContent{
+  width: 690px;
+}
