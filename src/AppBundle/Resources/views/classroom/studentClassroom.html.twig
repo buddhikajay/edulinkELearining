@@ -33,12 +33,12 @@
                 </div>
                 <div class="modal-body">
                     <div id="videoPlayer" style="position: relative;z-index: 1000;" >
-                        <video id="video" class="videoInsert" >
+                        {#<video id="videoInsert"  >#}
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">#}
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">#}
                             {#<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">#}
-                        </video>
-                        <div id="scrub"></div>
+                        {#</video>#}
+                        {#<div id="scrub"></div>#}
                     </div>
                 </div>
                 {#<div class="modal-footer">#}
@@ -114,22 +114,33 @@
                 'max-height':'100%'
             });
         });
-        var video = document.getElementById('video');
+//        var video = document.getElementById('video');
        // video.play();
         function showVideo(file) {
 
+            var video = document.createElement('video');
+            video.id = "video";
+            video.className = "videoInsert";
+            var scrub = document.createElement('scrub');
+
+            $("#videoPlayer").append(video);
+            $("#videoPlayer").append(scrub);
+
             var source = document.createElement('source');
 
-            source.setAttribute('src', file);
 
+            source.setAttribute('src', file);
             video.appendChild(source);
+
+
+            initializeVideoSync();
             $('#videoModal').modal({
                 show: true
             });
 
         }
         function hidePlayer(){
-            $("#video").empty();
+            $("#videoPlayer").empty();
             $('#videoModal').modal('hide');
         }
 

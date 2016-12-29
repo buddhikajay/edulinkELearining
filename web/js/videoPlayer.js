@@ -61,7 +61,7 @@ function emitMessage(event,data){
 
 
 
-    document.addEventListener( "DOMContentLoaded", function() {
+     function initializeVideoSync(){
 
         var video = Popcorn("#video");
 
@@ -149,7 +149,7 @@ function emitMessage(event,data){
         }
 
         //sync();
-    }, false );
+    }
 
 /**
  * Created by aseladarshan on 9/7/16.
