@@ -12,10 +12,10 @@
                 pauseVideo();
             }
             else if (message.event === 'updateTime') {
-                updateTime(message.data);
+                updateTime(parseFloat(message.data));
             }
             else if (message.event === 'seek') {
-                seek(message.data);
+                seek(parseFloat(message.data));
 
             }
             else if(message.event==='open'){
@@ -35,7 +35,7 @@ function pauseVideo(){
 }
 function updateTime(time){
     //  if (video.media.readyState === 4) {
-    video.currentTime(time);
+    video.currentTime=time;
     // }
 }
 function seek(time){
@@ -107,7 +107,7 @@ function emitMessage(event,data){
                                     return;
                                 }
                                 //videos.b.emit("timeupdate");
-                                emitMessage("seek",video.currentTime);
+                                emitMessage("seek",video.currentTime.toString());
                                 // update scrubber
                                 //scrub.val(video.currentTime);
 
@@ -116,7 +116,7 @@ function emitMessage(event,data){
 
                             if (event === "seeking") {
                                 // videos.b.currentTime(this.currentTime());
-                                emitMessage("seek",video.currentTime);
+                                emitMessage("seek",video.currentTime.toString());
                             }
 
                             if (event === "play" || event === "pause") {
