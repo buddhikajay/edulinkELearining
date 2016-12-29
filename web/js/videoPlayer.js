@@ -107,16 +107,16 @@ function emitMessage(event,data){
                                     return;
                                 }
                                 //videos.b.emit("timeupdate");
-                                emitMessage("seek",this.currentTime);
+                                emitMessage("seek",video.currentTime);
                                 // update scrubber
-                                scrub.val(this.currentTime);
+                                scrub.val(video.currentTime);
 
                                 return;
                             }
 
                             if (event === "seeking") {
                                 // videos.b.currentTime(this.currentTime());
-                                emitMessage("seek",this.currentTime);
+                                emitMessage("seek",video.currentTime);
                             }
 
                             if (event === "play" || event === "pause") {
