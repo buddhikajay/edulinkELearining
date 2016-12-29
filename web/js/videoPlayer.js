@@ -14,7 +14,7 @@
             else if (message.event === 'updateTime') {
                 updateTime(message.data);
             }
-            else if (message.event === 'seeking') {
+            else if (message.event === 'seek') {
                 seek(message.data);
 
             }
@@ -39,7 +39,8 @@ function updateTime(time){
     // }
 }
 function seek(time){
-    video.currentTime(time);
+
+    video.currentTime=time;
 }
 
 
