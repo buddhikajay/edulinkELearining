@@ -249,7 +249,9 @@
             var video = document.createElement('video');
             video.id = "video";
             video.className = "videoInsert";
+            video.controls=true;
             var scrub = document.createElement('scrub');
+            scrub.id = "scrub";
 
             $("#videoPlayer").append(video);
             $("#videoPlayer").append(scrub);
