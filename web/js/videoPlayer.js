@@ -35,12 +35,12 @@ function pauseVideo(){
 }
 function updateTime(time){
     //  if (video.media.readyState === 4) {
-    video.currentTime=time;
+    $("#video")[0].currentTime=time;
     // }
 }
 function seek(time){
 
-    video.currentTime=time;
+    $("#video")[0].currentTime=time;
 }
 
 
@@ -107,7 +107,7 @@ function emitMessage(event,data){
                                     return;
                                 }
                                 //videos.b.emit("timeupdate");
-                                emitMessage("seek",video.currentTime.toString());
+                                emitMessage("timeupdate",$("#video")[0].currentTime.toString());
                                 // update scrubber
                                 //scrub.val(video.currentTime);
 
