@@ -28,7 +28,7 @@
     {#<button type="button" class="btn btn-primary btn-lg" onclick="openVideo()">#}
         {#Show Video#}
     {#</button>#}
-    <button type="button" class="btn btn-primary btn-lg" onclick="showVideo('/videos/SampleVideo_1280x720_5mb.mp4')">
+    <button type="button" class="btn btn-primary btn-lg" onclick="openVideo()">
         Show Video
     </button>
     <button type="button" class="btn btn-primary btn-lg" id="screenShareButton">
@@ -99,7 +99,7 @@
     <script src="{{ asset('js/screenShare.js') }}" type="text/javascript"></script>
 
     {#scripts for video player#}
-    <script src="{{ '/js/popcorn-complete.js' }}"></script>
+    {#<script src="{{ '/js/popcorn-complete.js' }}"></script>#}
     {#<script#}
             {#src="https://code.jquery.com/jquery-3.1.0.min.js"#}
             {#integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="#}
@@ -250,14 +250,13 @@
         }
         function showVideo(file) {
             var video = document.createElement('video');
-            video.id = "video";
+            video.id = "vid";
             video.className = "videoInsert";
             video.controls=true;
-            var scrub = document.createElement('scrub');
-            scrub.id = "scrub";
+
 
             $("#videoPlayer").append(video);
-            $("#videoPlayer").append(scrub);
+
 
             var source = document.createElement('source');
 
