@@ -21,6 +21,7 @@ window.onload = function () {
         console.log("screenShareButton clicked");
         if (webrtc.getLocalScreen()) {
             webrtc.stopScreenShare();
+            delete webrtc.getLocalScreen();
             setButton(true);
         } else {
             webrtc.shareScreen(function (err) {
