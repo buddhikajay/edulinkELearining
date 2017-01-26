@@ -14116,8 +14116,16 @@ SimpleWebRTC.prototype.handlePeerStreamAdded = function (peer) {
     peer.videoEl = video;
     video.id = this.getDomId(peer);
 
-    if (container) container.appendChild(video);
+    if(peer.type==="screen"){
 
+        //show shared screen
+        $("#sharedScreen").append(video);
+
+    }
+    else {
+        if (container) container.appendChild(video);
+
+    }
     this.emit('videoAdded', video, peer);
 
     // send our mute status to new peer if we're muted
@@ -14137,8 +14145,17 @@ SimpleWebRTC.prototype.handlePeerStreamAdded = function (peer) {
 SimpleWebRTC.prototype.handlePeerStreamRemoved = function (peer) {
     var container = this.getRemoteVideoContainer();
     var videoEl = peer.videoEl;
+
     if (this.config.autoRemoveVideos && container && videoEl) {
-        container.removeChild(videoEl);
+        if(peer.type==="screen"){
+            // alert("screen removed");
+            $("#sharedScreen").empty();
+        }
+        else {
+            container.removeChild(videoEl);
+
+
+        }
     }
     if (videoEl) this.emit('videoRemoved', videoEl, peer);
 };

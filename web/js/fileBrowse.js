@@ -1,5 +1,5 @@
 var DEFAULT_URL = ''; // added from Viewer.js
-
+var VIDEO_FILES_PATH="https://files.siplo.xyz/connectors/php/filemanager.php?mode=readfile&path=%2Fbatch-12-Module-CS2036%2F";
 $(function() {
     //$('#container').jstree({
     //    'core' : {
@@ -14,7 +14,7 @@ $(function() {
     $('#container').jstree({
         'core' : {
             'data' : {
-                "url" : "https://files.whiteboard.siplo.xyz/tree/",
+                "url" : "https://whiteboard.siplo.xyz/tree/",
                 "data" : function (node) {
                     return { "id" : node.id };
                 }
@@ -84,8 +84,7 @@ $(function(){
          socket.emit('pdf:load', room, uid, DEFAULT_URL);*/
 
         $('body').css('background-color', '#404040');
-        if(role == "tutor")
-            $('.pdf-controllers-container').css('display', 'block');
+        showVideo(VIDEO_FILES_PATH+DEFAULT_URL);
         $('#fileBrowserModal').modal('hide');
 
     });
