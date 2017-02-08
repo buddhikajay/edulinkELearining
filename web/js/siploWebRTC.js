@@ -66,7 +66,7 @@ webrtc.on('videoAdded', function (video, peer) {
         video.oncontextmenu = function () { return false; };
 
 
-            remotes.appendChild(container);
+            remotes.html(container);
 
     }
 });
