@@ -6,10 +6,11 @@
     right: 260px;
 }
 #localVideo{
-    width: 50px;
+    width: 100px;
     z-index: 11;
     position: absolute;
-    top:10px;
+    top:210px;
+    left: 150px;
 
 }
 #remoteVideos{
