@@ -69,5 +69,5 @@ webrtc.on('videoAdded', function (video, peer) {
             remotes.html(container);
 
     }
-    $("#remoteVideos").html(video);
+    //$("#remoteVideos").html(video);
 });
