@@ -24,7 +24,7 @@ var webrtc = new SimpleWebRTC({
 webrtc.on('readyToCall', function () {
     // you can name it anything
     console.log("joining room");
-    webrtc.joinRoom('testclassroom','role_student');
+    webrtc.joinRoom('classroom','role_student');
     //webrtc.sendToAll('readyToCall','pa');
 
 

@@ -34,7 +34,7 @@ var webrtc = new SimpleWebRTC({
 webrtc.on('readyToCall', function () {
     // you can name it anything
     console.log("joining room");
-    webrtc.joinRoom('testclassroom','role_student');
+    webrtc.joinRoom('classroom','role_student');
     //webrtc.sendToAll('readyToCall','pa');
 
 
@@ -54,19 +54,20 @@ webrtc.on('createdPeer', function (peer) {
 // a peer video has been added
 webrtc.on('videoAdded', function (video, peer) {
     console.log('video added', peer);
+
+    var remotes = document.getElementById('remotes');
+    if (remotes) {
+        var container = document.createElement('div');
+        container.className = 'videoContainer';
+        container.id = 'container_' + webrtc.getDomId(peer);
+        container.appendChild(video);
+
+        // suppress contextmenu
+        video.oncontextmenu = function () { return false; };
+
+
+            remotes.html(container);
+
+    }
     $("#remoteVideos").html(video);
-    //var remotes = document.getElementById('remotes');
-    //if (remotes) {
-    //    var container = document.createElement('div');
-    //    container.className = 'videoContainer';
-    //    container.id = 'container_' + webrtc.getDomId(peer);
-    //    container.appendChild(video);
-    //
-    //    // suppress contextmenu
-    //    video.oncontextmenu = function () { return false; };
-    //
-    //
-    //        remotes.html(container);
-    //
-    //}
 });
