@@ -24,7 +24,7 @@ var webrtc = new SimpleWebRTC({
 webrtc.on('readyToCall', function () {
     // you can name it anything
     console.log("joining room");
-    webrtc.joinRoom('classroom','role_student');
+    webrtc.joinRoom('testclassroom','role_student');
     //webrtc.sendToAll('readyToCall','pa');
 
 
@@ -36,9 +36,9 @@ webrtc.on('connectionReady', function (sessionId) {
 });
 
 webrtc.on('createdPeer', function (peer) {
-    if(myRole!='teacher'){
+    //if(myRole!='teacher'){
         disableMic();
-    }
+    //}
     console.log('peer created '+peer.role+' type: '+ peer.type);
     webrtc.sendToAll('peer created','pa');
 
