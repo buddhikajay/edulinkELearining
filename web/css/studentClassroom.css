@@ -26,7 +26,11 @@
     width: auto;
     z-index: 9;
     position: absolute;
-    top:10px;
+    top:40px;
     left: 10px;
 
+
+}
+#sharedScreen > video{
+    width: 80vw;
 }

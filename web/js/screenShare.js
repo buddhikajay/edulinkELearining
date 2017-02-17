@@ -45,8 +45,8 @@ window.onload = function () {
 // local screen obtained
 webrtc.on('localScreenAdded', function (video) {
     video.onclick = function () {
-        video.style.width = video.videoWidth + 'px';
-        video.style.height = video.videoHeight + 'px';
+        video.style.width = "9vw";
+        video.style.height = video.videoHeight-500 + 'px';
     };
     document.getElementById('remoteVideos').appendChild(video);
     // $('#localScreenContainer').show();
