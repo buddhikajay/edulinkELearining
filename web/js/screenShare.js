@@ -25,6 +25,7 @@ window.onload = function () {
             delete webrtc.getLocalScreen();
             console.log("screen share already started");
             setButton(true);
+            location.reload();
         } else {
             webrtc.shareScreen(function (err) {
                 if (err) {
