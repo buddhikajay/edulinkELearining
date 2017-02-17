@@ -14119,14 +14119,16 @@ SimpleWebRTC.prototype.handlePeerStreamAdded = function (peer) {
     if(peer.type==="screen"){
 
         //show shared screen
+
         $("#sharedScreen").append(video);
 
     }
     else {
-        if (container) {
+        if (container && myRole !== "teacher_whiteboard") {
             while (container.hasChildNodes()) {
                 container.removeChild(container.lastChild);
             }
+
             container.appendChild(video);
         }
 
