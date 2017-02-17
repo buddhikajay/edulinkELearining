@@ -14123,7 +14123,12 @@ SimpleWebRTC.prototype.handlePeerStreamAdded = function (peer) {
 
     }
     else {
-        if (container) container.appendChild(video);
+        if (container) {
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            container.appendChild(video);
+        }
 
     }
     this.emit('videoAdded', video, peer);

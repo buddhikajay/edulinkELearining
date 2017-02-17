@@ -3,6 +3,7 @@
  */
 
 var screenShareButton = null;
+
 window.onload = function () {
     screenShareButton = document.getElementById('screenShareButton');
     setButton = function (bool) {
@@ -22,12 +23,15 @@ window.onload = function () {
         if (webrtc.getLocalScreen()) {
             webrtc.stopScreenShare();
             delete webrtc.getLocalScreen();
+            console.log("screen share already started");
             setButton(true);
         } else {
             webrtc.shareScreen(function (err) {
                 if (err) {
+                    console.log("screen share error:",err.name,err);
                     setButton(true);
                 } else {
+                    console.log("screen share avaliable");
                     setButton(false);
                 }
             });
