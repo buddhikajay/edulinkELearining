@@ -14124,7 +14124,7 @@ SimpleWebRTC.prototype.handlePeerStreamAdded = function (peer) {
 
     }
     else {
-        if (container && myRole !== "teacher_whiteboard") {
+        if (container && myRole !== "teacherWhiteboard") {
             while (container.hasChildNodes()) {
                 container.removeChild(container.lastChild);
             }
