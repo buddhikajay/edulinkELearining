@@ -1,5 +1,5 @@
 var DEFAULT_URL = ''; // added from Viewer.js
-var VIDEO_FILES_PATH="https://files.siplo.lk/connectors/php/filemanager.php?mode=readfile&path=%2Fbatch-12-Module-CS2036%2F";
+var VIDEO_FILES_PATH="https://whiteboard.siplo.lk/user_files/";
 $(function() {
     //$('#container').jstree({
     //    'core' : {
