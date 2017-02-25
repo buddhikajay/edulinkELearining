@@ -1,5 +1,5 @@
 var DEFAULT_URL = ''; // added from Viewer.js
-var VIDEO_FILES_PATH="https://whiteboard.siplo.lk/user_files/";
+var VIDEO_FILES_PATH="https://whiteboard.siplo.lk/user_files/batch-12-Module-CS2036/";
 $(function() {
     //$('#container').jstree({
     //    'core' : {
