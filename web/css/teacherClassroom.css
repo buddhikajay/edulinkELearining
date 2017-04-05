@@ -1,17 +1,18 @@
 .modal-backdrop {background: none;}
 #localVideo{
     position: relative;
+    left:-38px;
     bottom:0;
     right: 0;
     z-index: 100;
-    width: 100px;
+    width: 205px;
 
 }
 
 #remoteVideos{
     position: absolute;
     top:1vh;
-    left: 1vw;
+    left: 16vw;
     z-index: 0;
     height: 98vh;
 }
