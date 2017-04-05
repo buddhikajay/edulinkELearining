@@ -7,7 +7,7 @@ var screenShareButton = null;
 window.onload = function () {
     screenShareButton = document.getElementById('screenShareButton');
     setButton = function (bool) {
-        screenShareButton.innerText = bool ? 'share screen' : 'stop sharing';
+        screenShareButton.innerText = bool ? '' : 'stop sharing';
     };
     // if (!webrtc.capabilities.screenSharing) {
     //    screenShareButton.disabled = 'disabled';
