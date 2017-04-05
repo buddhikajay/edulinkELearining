@@ -20,3 +20,19 @@
 #remoteVideos video{
     width:250px;
 }
+#showVideoButton{
+    left:69vw;
+    top: 86.5vh;
+    background: url("../images/video.png"   ) no-repeat;
+    border: none;
+    height: 35px;
+    width: 35px;
+}
+#screenShareButton{
+    top: 87vh;
+    left:70vw;
+    background: url("../images/screen.png") no-repeat;
+    border: none;
+    height: 34px;
+    width: 34px;
+}
